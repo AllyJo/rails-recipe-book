@@ -1,8 +1,7 @@
 class RecipesController < ApplicationController
 
   def index
-    Recipe.all.includes(:tags)
+    @recipes = Recipe.all.includes(:tags)
   end
-
 
 end
