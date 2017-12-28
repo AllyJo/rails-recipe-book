@@ -9,3 +9,4 @@
 
 # STRETCH GOALS
 - Recipes can be searched by name, user, ingredient, or tag
+
