@@ -5,17 +5,15 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @creator = Recipe.find_by(recipe_params[:creator])
-    @recipe = @creator.recipes.new(recipe_params)
-  end
-
-  def new
+    # @creator = Recipe.find_by(recipe_params[:creator])
+    # @recipe = @creator.recipes.new(recipe_params)
   end
 
   def edit
   end
 
   def show
+    @recipe = Recipe.find(params[:id])
   end
 
   def update
@@ -23,7 +21,8 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :instructions, :cooking_time, :cooking_style, :creator)
+    ep(params)
+    params.require(:recipe).permit(:id, :name, :instructions, :cooking_time, :cooking_style)
   end
 
 

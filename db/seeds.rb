@@ -1,4 +1,4 @@
-ally = User.create(name: 'Ally', email: 'ally@ally.com', password: 'ally')
+ally = User.create(username: 'Ally', email: 'ally@ally.com', password: 'ally')
 chicken_dinner = Recipe.create(name: 'BBQ Chicken', instructions: 'Preheat convection oven. Coat chicken breast with bbq sauce. Place chicken breast on lined baking sheet. Rest for 10 minutes before serving', cooking_time: '45 minutes', cooking_style: 'baked')
 chicken_dinner.ingredients.create(name: 'chicken breast', amount: '2')
 chicken_dinner.ingredients.create(name: 'Sugar-free bbq sauce', amount: '1/2 cup')
