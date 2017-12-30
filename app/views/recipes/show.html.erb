@@ -1,12 +1,12 @@
 <h2>Recipes#show</h2>
 
 <h1><%= @recipe.name %></h1>
-<p>By: <%= @recipe.creator.username %></p>
-<h3>Ingredients:</h3>
+<p><%= @recipe.creator.username %></p>
+<h3>Instructions:</h3>
+<p><%= @recipe.instructions %></p>
+ <h3>Ingredients:</h3>
 <ul style="list-style: none">
   <% @recipe.ingredients.each do |ingredient| %>
   <li><%= ingredient.amount %>  <%= ingredient.name %></li>
   <% end %>
 </ul>
-<h3>Instructions:</h3>
-<p><%= @recipe.instructions %></p>
