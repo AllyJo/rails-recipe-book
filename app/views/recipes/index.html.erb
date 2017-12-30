@@ -1,4 +1,4 @@
-<h1>Recipes#Index</h1>
+<p>Welcome to Recipe Book! A place to store and discover recipes.</p>
 <ul class="no-decoration recipe-container">
   <% @recipes.each do |recipe| %>
     <li class="recipe-card"><%= link_to recipe.name, recipe_path(recipe) %>
@@ -8,7 +8,6 @@
         <%= render partial: "tags/show", locals: {tag: tag} %>
       <% end %>
     </ul>
-    <%= link_to "edit", edit_recipe_path(recipe) %>
     </li>
   <% end %>
 

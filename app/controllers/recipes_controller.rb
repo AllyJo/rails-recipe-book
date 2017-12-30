@@ -10,10 +10,11 @@ class RecipesController < ApplicationController
   end
 
   def edit
+
   end
 
   def show
-    @recipe = Recipe.includes(:ingredients).find(params[:id])
+    @recipe = Recipe.includes(:ingredients, :tags).find(params[:id])
   end
 
   def update
@@ -22,7 +23,7 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     ep(params)
-    params.require(:recipe).permit(:id, :name, :instructions, :cooking_time, :cooking_style)
+    params.require(:recipe).permit(:name, :instructions, :cooking_time, :cooking_style)
   end
 
 
