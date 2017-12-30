@@ -1838,3 +1838,260 @@ Processing by RecipesController#edit as HTML
 Completed 200 OK in 58ms (Views: 49.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:50:20 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (16.8ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial tag/_show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/AllyJo/Dropbox/Ally/AllyCode/project/recipes/rails-recipe-book/app/views"
+):
+    4:   <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    5:   <li><%= recipe.creator.username %></li>
+    6:   <% recipe.tags.each do |tag| %>
+    7:     <%= render "tag/show" %>
+    8:   <% end %>
+    9:   <li><%= link_to "edit", edit_recipe_path(recipe) %></li>
+   10:   <% end %>
+  
+app/views/recipes/index.html.erb:7:in `block (2 levels) in _app_views_recipes_index_html_erb___3391374523811881931_70313625817360'
+app/views/recipes/index.html.erb:6:in `block in _app_views_recipes_index_html_erb___3391374523811881931_70313625817360'
+app/views/recipes/index.html.erb:3:in `_app_views_recipes_index_html_erb___3391374523811881931_70313625817360'
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:50:52 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.5ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (20.3ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial tags/_show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/AllyJo/Dropbox/Ally/AllyCode/project/recipes/rails-recipe-book/app/views"
+):
+    4:   <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    5:   <li><%= recipe.creator.username %></li>
+    6:   <% recipe.tags.each do |tag| %>
+    7:     <%= render "tags/show" %>
+    8:   <% end %>
+    9:   <li><%= link_to "edit", edit_recipe_path(recipe) %></li>
+   10:   <% end %>
+  
+app/views/recipes/index.html.erb:7:in `block (2 levels) in _app_views_recipes_index_html_erb___3391374523811881931_70313603878480'
+app/views/recipes/index.html.erb:6:in `block in _app_views_recipes_index_html_erb___3391374523811881931_70313603878480'
+app/views/recipes/index.html.erb:3:in `_app_views_recipes_index_html_erb___3391374523811881931_70313603878480'
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:51:59 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.6ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.4ms)
+  Rendered recipes/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 55ms (Views: 48.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:52:57 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.5ms)
+  Rendered recipes/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 49ms (Views: 43.3ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:55:27 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.7ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.8ms)
+  Rendered recipes/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 74ms (Views: 65.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:55:40 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.5ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.8ms)
+  Rendered recipes/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 74ms (Views: 61.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:55:43 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.5ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (1.4ms)
+  Rendered recipes/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 63ms (Views: 55.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:56:31 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.9ms)
+  Rendered recipes/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 71ms (Views: 61.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 22:59:19 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.5ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.5ms)
+  Rendered recipes/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 184ms (Views: 178.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:00:26 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.5ms)
+  Rendered recipes/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 60ms (Views: 53.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:00:53 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.6ms)
+  Rendered recipes/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 94ms (Views: 86.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:01:19 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.9ms)
+  Rendered recipes/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 108ms (Views: 96.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:02:17 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (1.0ms)
+  Rendered recipes/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 98ms (Views: 88.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:05:21 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.5ms)
+  Rendered recipes/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 77ms (Views: 70.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:05:52 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.6ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.7ms)
+  Rendered recipes/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 61ms (Views: 53.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:06:13 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.5ms)
+  Rendered recipes/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 52ms (Views: 45.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:08:13 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.6ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.6ms)
+  Rendered recipes/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 70ms (Views: 61.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:11:39 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.5ms)
+  Rendered recipes/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 70ms (Views: 64.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 23:12:00 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.9ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 6[0m
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 5[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (1.0ms)
+  Rendered recipes/index.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 80ms (Views: 71.5ms | ActiveRecord: 2.7ms)
+
+

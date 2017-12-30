@@ -1,10 +1,15 @@
 <h1>Recipes#Index</h1>
-<ul style="list-style: none">
+<ul class="no-decoration recipe-container">
   <% @recipes.each do |recipe| %>
-  <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-  <li><%= recipe.creator.username %></li>
-  <li><%= recipe.tags %></li>
-  <li><%= link_to "edit", edit_recipe_path(recipe) %></li>
+    <li class="recipe-card"><%= link_to recipe.name, recipe_path(recipe) %>
+      <p>By: <%= recipe.creator.username %></p>
+    <ul class="no-decoration tag-container">
+      <% recipe.tags.each do |tag| %>
+        <%= render partial: "tags/show", locals: {tag: tag} %>
+      <% end %>
+    </ul>
+    <%= link_to "edit", edit_recipe_path(recipe) %>
+    </li>
   <% end %>
 
 </ul>
