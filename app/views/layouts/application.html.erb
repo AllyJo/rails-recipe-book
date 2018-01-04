@@ -9,10 +9,17 @@
   </head>
 
   <body>
-    <div class="nav-container">
+    <div class="home-container">
       <%= link_to 'All Recipes', root_path %>
+    </div>
+    <div class="account-container">
+      <% if current_user %>
+      <%= link_to 'Profile', user_path %>
+      <%= link_to 'Logout', session_path %>
+      <% else %>
       <%= link_to 'Login', new_session_path %>
       <%= link_to 'Create Account', new_user_path %>
+      <% end %>
     </div>
     <%= yield %>
   </body>
