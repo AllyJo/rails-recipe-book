@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <div class="nav-container">
+      <%= link_to 'All Recipes', root_path %>
+      <%= link_to 'Login', new_session_path %>
+      <%= link_to 'Create Account', new_user_path %>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20171228203607) do
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.text "instructions"
-    t.time "cooking_time"
+    t.string "cooking_time"
     t.string "cooking_style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20171228203607) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
