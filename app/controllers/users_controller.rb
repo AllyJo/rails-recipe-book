@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @created_recipes = @user.created_recipes.find_by(params[:created_recipe])
-    @favorite_recipes = @user.favorites.find_by(params[:favorites])
+    @favorites = @user.favorites.find_by(params[:favorites])
   end
 
   private
