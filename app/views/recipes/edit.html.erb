@@ -1,24 +1,26 @@
 <h2>Recipes#edit</h2>
-<form>
+<%= form_tag recipes_path do %>
+  <label>Recipe Name:</label>
+  <%= text_field_tag :name, @recipe.name %><br>
+  <label>Instructions:</label>
+  <%= text_area_tag :instructions, @recipe.instructions %><br>
+  <label>Cooking Time:</label>
+  <%= text_field_tag :cooking_time, @recipe.cooking_time %><br>
+  <label>Cooking Style:</label>
+  <%= text_field_tag :cooking_style, @recipe.cooking_style %>
+<% end %>
 
-<input type="text" name="" value="<%= @recipe.name %>">
 <h3>Ingredients:</h3>
-  <ul style="list-style: none">
+  <ul class="no-decoration ingredient-list">
   <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.amount %>  <%= ingredient.name %> <%= link_to 'edit', edit_recipe_ingredient_path(@recipe) %></li>
+    <%= render partial: "ingredients/show", locals: {ingredient: ingredient} %>
   <% end %>
 </ul>
-<h3>Instructions:</h3>
-<p><input type="textarea" name="instructions" value="<%= @recipe.instructions %>"></p>
-<h5>Cooking Time:</h5>
-<p><input type="text" name="time" value="<%= @recipe.cooking_time %>">
-</p>
-<h5>Cooking Style: </h5>
-<p><input type="text-box" name="style" value="<%= @recipe.cooking_style %>"></p>
+
 <h5>Tags:</h5>
   <ul class="no-decoration tag-container">
     <% @recipe.tags.each do |tag| %>
       <%= render partial: "tags/show", locals: {tag: tag} %>
       <% end %>
   </ul>
-</form>
+
