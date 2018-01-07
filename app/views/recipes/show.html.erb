@@ -1,4 +1,7 @@
 <h1><%= @recipe.name %></h1>
+<% if current_user == @recipe.creator %>
+  <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
+<% end %>
 <p>by: <%= @recipe.creator.username %></p>
 <h3>Ingredients:</h3>
   <ul class="no-decoration ingredient-list">
@@ -17,6 +20,3 @@
       <%= render partial: "tags/show", locals: {tag: tag} %>
       <% end %>
   </ul>
-  <% if current_user == @recipe.creator %>
-<%= link_to "edit", edit_recipe_path(@recipe) %>
-<% end %>

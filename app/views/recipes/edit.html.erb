@@ -1,26 +1,30 @@
 <h2>Recipes#edit</h2>
-<%= form_tag recipes_path do %>
+<%= form_for @recipe do |f| %>
   <label>Recipe Name:</label>
-  <%= text_field_tag :name, @recipe.name %><br>
+  <%= f.text_field :name %><br><br>
   <label>Instructions:</label>
-  <%= text_area_tag :instructions, @recipe.instructions %><br>
+  <%= f.text_area :instructions, rows: 5, cols: 100 %><br><br>
   <label>Cooking Time:</label>
-  <%= text_field_tag :cooking_time, @recipe.cooking_time %><br>
+  <%= f.text_field :cooking_time %><br><br>
   <label>Cooking Style:</label>
-  <%= text_field_tag :cooking_style, @recipe.cooking_style %>
-<% end %>
-
-<h3>Ingredients:</h3>
-  <ul class="no-decoration ingredient-list">
-  <% @recipe.ingredients.each do |ingredient| %>
-    <%= render partial: "ingredients/show", locals: {ingredient: ingredient} %>
+  <%= f.text_field :cooking_style %><br><br>
+  <label>Ingredients: </label>
+  <%= f.fields_for :ingredients, @recipe.ingredients || @recipe.build_ingredient do |ingredient| %>
+  <br>
+    Amount: <%= ingredient.text_field :amount %>
+    Ingredient Name: <%= ingredient.text_field :name %>
   <% end %>
-</ul>
 
-<h5>Tags:</h5>
-  <ul class="no-decoration tag-container">
-    <% @recipe.tags.each do |tag| %>
-      <%= render partial: "tags/show", locals: {tag: tag} %>
-      <% end %>
-  </ul>
+  <br><br>
+
+  <%= f.fields_for :tags, @recipe.tags || @recipe.build_tag do |tag| %>
+    Tag: <%= tag.text_field :body %><br>
+  <% end %><br>
+  <%= f.submit "Update Recipe" %>
+<% end %>
+<br>
+
+
+
+
 
