@@ -10,9 +10,6 @@
   <%= f.text_field :cooking_style %><br><br>
   <label>Ingredients: </label>
   <%= f.fields_for :ingredients, @recipe.ingredients || @recipe.build_ingredient do |ingredient| %>
-  <br>
-    Amount: <%= ingredient.text_field :amount %>
-    Ingredient Name: <%= ingredient.text_field :name %>
   <% end %>
 
   <br><br>

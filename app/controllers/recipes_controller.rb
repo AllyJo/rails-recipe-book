@@ -7,16 +7,19 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
+    @recipe.tags.build
   end
+
   def create
-    @recipe = Recipe.includes(:ingredients, :tags).create(recipe_params)
-    # if @recipe.creator == current_user
-      if @recipe.save
-      redirect_to recipes_path
-      end
+    @recipe = current_user.created_recipes.create(recipe_params)
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
     else
       @errors = @recipe.errors.full_messages
+      ep @errors
       render 'new'
+    end
     # end
   end
 
