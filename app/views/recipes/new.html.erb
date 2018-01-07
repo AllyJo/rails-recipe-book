@@ -1,22 +1,32 @@
 <h2>Recipes#new</h2>
-<%= form_with model: @recipe do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<%= form_for @recipe do |f| %>
+  <label>Recipe Name:</label>
+  <%= f.text_field :name %><br><br>
+  <label>Instructions:</label>
+  <%= f.text_area :instructions, rows: 5, cols: 100 %><br><br>
+  <label>Cooking Time:</label>
+  <%= f.text_field :cooking_time %><br><br>
+  <label>Cooking Style:</label>
+  <%= f.text_field :cooking_style %><br><br>
+  <h3>Ingredients: </h3>
+  <div id="ingredients">
+    <%= f.fields_for :ingredients do |ingredient| %>
+      <%= render 'ingredient_fields', f: ingredient %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
+    </div>
   </div>
-  <div>
-    <%= form.label :instructions %>
-    <%= form.text_field :instructions %>
+  <br><br>
+  <h3>Tags:</h3>
+  <div id="tags">
+  <%= f.fields_for :tags do |tag| %>
+    <%= render 'tag_fields', f: tag %>
+  <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Tag', f, :tags %>
+    </div>
   </div>
-  <div>
-    <%= form.label :cooking_time %>
-    <%= form.text_field :cooking_time %>
-  </div>
-  <div>
-    <%= form.label :cooking_style %>
-    <%= form.text_field :cooking_style %>
-  </div>
-  <div>
-    <%= form.submit "Add Recipe" %>
-  </div>
+  <br>
+  <%= f.submit "Add Recipe" %>
 <% end %>

@@ -17,3 +17,17 @@
 .no-decoration {
   list-style: none;
 }
+
+.nav-container {
+  border-bottom: 1px solid blue;
+  padding-bottom: 10px;
+}
+
+.home-container {
+  float: left;
+}
+
+.account-container {
+  text-align: right;
+
+}

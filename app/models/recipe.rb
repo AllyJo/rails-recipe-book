@@ -9,4 +9,6 @@ class Recipe < ApplicationRecord
   has_many :tags, through: :recipe_tags
 
   belongs_to :creator, class_name: 'User'
+
+  accepts_nested_attributes_for :ingredients, :tags
 end

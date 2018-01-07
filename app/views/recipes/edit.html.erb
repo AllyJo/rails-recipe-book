@@ -1,24 +1,40 @@
 <h2>Recipes#edit</h2>
-<form>
+<%= form_for @recipe do |f| %>
+  <label>Recipe Name:</label>
+  <%= f.text_field :name %><br><br>
+  <label>Instructions:</label>
+  <%= f.text_area :instructions, rows: 5, cols: 100 %><br><br>
+  <label>Cooking Time:</label>
+  <%= f.text_field :cooking_time %><br><br>
+  <label>Cooking Style:</label>
+  <%= f.text_field :cooking_style %><br><br>
+  <h3>Ingredients: </h3>
+  <div id="ingredients">
+    <%= f.fields_for :ingredients do |ingredient| %>
+      <%= render 'ingredient_fields', f: ingredient %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
+    </div>
+  </div>
 
-<input type="text" name="" value="<%= @recipe.name %>">
-<h3>Ingredients:</h3>
-  <ul style="list-style: none">
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.amount %>  <%= ingredient.name %> <%= link_to 'edit', edit_recipe_ingredient_path(@recipe) %></li>
+  <br><br>
+
+   <h3>Tags:</h3>
+  <div id="tags">
+  <%= f.fields_for :tags do |tag| %>
+    <%= render 'tag_fields', f: tag %>
   <% end %>
-</ul>
-<h3>Instructions:</h3>
-<p><input type="textarea" name="instructions" value="<%= @recipe.instructions %>"></p>
-<h5>Cooking Time:</h5>
-<p><input type="text" name="time" value="<%= @recipe.cooking_time %>">
-</p>
-<h5>Cooking Style: </h5>
-<p><input type="text-box" name="style" value="<%= @recipe.cooking_style %>"></p>
-<h5>Tags:</h5>
-  <ul class="no-decoration tag-container">
-    <% @recipe.tags.each do |tag| %>
-      <%= render partial: "tags/show", locals: {tag: tag} %>
-      <% end %>
-  </ul>
-</form>
+    <div class="links">
+      <%= link_to_add_association 'Add Tag', f, :tags %>
+    </div>
+  </div>
+
+  <%= f.submit "Update Recipe" %>
+<% end %>
+<br>
+
+
+
+
+
