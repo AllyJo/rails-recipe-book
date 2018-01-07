@@ -8,15 +8,28 @@
   <%= f.text_field :cooking_time %><br><br>
   <label>Cooking Style:</label>
   <%= f.text_field :cooking_style %><br><br>
-  <label>Ingredients: </label>
-  <%= f.fields_for :ingredients, @recipe.ingredients || @recipe.build_ingredient do |ingredient| %>
-  <% end %>
+  <h3>Ingredients: </h3>
+  <div id="ingredients">
+    <%= f.fields_for :ingredients do |ingredient| %>
+      <%= render 'ingredient_fields', f: ingredient %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
+    </div>
+  </div>
 
   <br><br>
 
-  <%= f.fields_for :tags, @recipe.tags || @recipe.build_tag do |tag| %>
-    Tag: <%= tag.text_field :body %><br>
-  <% end %><br>
+   <h3>Tags:</h3>
+  <div id="tags">
+  <%= f.fields_for :tags do |tag| %>
+    <%= render 'tag_fields', f: tag %>
+  <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Tag', f, :tags %>
+    </div>
+  </div>
+
   <%= f.submit "Update Recipe" %>
 <% end %>
 <br>

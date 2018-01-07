@@ -12487,3 +12487,178 @@ Processing by RecipesController#index as HTML
 Completed 200 OK in 198ms (Views: 181.2ms | ActiveRecord: 8.9ms)
 
 
+Started GET "/recipes/3" for 127.0.0.1 at 2018-01-07 12:53:49 -0800
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (14.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (1.8ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (18, 19)[0m
+  [1m[36mRecipeTag Load (1.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 4[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered ingredients/_show.html.erb (1.0ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.7ms)
+  Rendered recipes/show.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 337ms (Views: 134.6ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/recipes/3/edit" for 127.0.0.1 at 2018-01-07 12:53:52 -0800
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.8ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (18, 19)[0m
+  [1m[36mRecipeTag Load (1.6ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 4[0m
+  Rendering recipes/edit.html.erb within layouts/application
+  Rendered recipes/_ingredient_fields.html.erb (1.6ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.5ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.3ms)
+  Rendered recipes/_ingredient_fields.html.erb (1.6ms)
+  Rendered recipes/edit.html.erb within layouts/application (54.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 179ms (Views: 123.5ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/recipes/3/edit" for 127.0.0.1 at 2018-01-07 12:54:23 -0800
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.4ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (18, 19)[0m
+  [1m[36mRecipeTag Load (0.6ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 4[0m
+  Rendering recipes/edit.html.erb within layouts/application
+  Rendered recipes/_ingredient_fields.html.erb (1.2ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.4ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.8ms)
+  Rendered recipes/edit.html.erb within layouts/application (24.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 245ms (Views: 90.3ms | ActiveRecord: 41.6ms)
+
+
+Started GET "/recipes/3/edit" for 127.0.0.1 at 2018-01-07 12:54:40 -0800
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (1.6ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (18, 19)[0m
+  [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 4[0m
+  Rendering recipes/edit.html.erb within layouts/application
+  Rendered recipes/_ingredient_fields.html.erb (1.0ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.6ms)
+  Rendered recipes/_ingredient_fields.html.erb (1.2ms)
+  Rendered recipes/edit.html.erb within layouts/application (31.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 279ms (Views: 110.2ms | ActiveRecord: 36.6ms)
+
+
+Started GET "/recipes/3/edit" for 127.0.0.1 at 2018-01-07 12:55:31 -0800
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.5ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (18, 19)[0m
+  [1m[36mRecipeTag Load (0.6ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 4[0m
+  Rendering recipes/edit.html.erb within layouts/application
+  Rendered recipes/_ingredient_fields.html.erb (0.9ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.4ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.8ms)
+  Rendered recipes/_tag_fields.html.erb (0.7ms)
+  Rendered recipes/_tag_fields.html.erb (0.9ms)
+  Rendered recipes/edit.html.erb within layouts/application (33.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 107ms (Views: 78.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/recipes/3/edit" for 127.0.0.1 at 2018-01-07 12:56:04 -0800
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.7ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (18, 19)[0m
+  [1m[36mRecipeTag Load (0.5ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 4[0m
+  Rendering recipes/edit.html.erb within layouts/application
+  Rendered recipes/_ingredient_fields.html.erb (1.6ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.9ms)
+  Rendered recipes/_ingredient_fields.html.erb (1.4ms)
+  Rendered recipes/_tag_fields.html.erb (1.4ms)
+  Rendered recipes/_tag_fields.html.erb (1.6ms)
+  Rendered recipes/edit.html.erb within layouts/application (54.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 118ms (Views: 97.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/recipes/3/edit" for 127.0.0.1 at 2018-01-07 12:56:15 -0800
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.6ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (18, 19)[0m
+  [1m[36mRecipeTag Load (0.5ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = 4[0m
+  Rendering recipes/edit.html.erb within layouts/application
+  Rendered recipes/_ingredient_fields.html.erb (0.9ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.4ms)
+  Rendered recipes/_ingredient_fields.html.erb (0.8ms)
+  Rendered recipes/_tag_fields.html.erb (0.8ms)
+  Rendered recipes/_tag_fields.html.erb (1.1ms)
+  Rendered recipes/edit.html.erb within layouts/application (31.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 89ms (Views: 69.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 12:56:23 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.7ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" IN (1, 2, 3, 4)[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (1, 2, 3, 4, 5, 6)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered recipes/index.html.erb within layouts/application (57.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 116ms (Views: 103.9ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/sessions/2" for 127.0.0.1 at 2018-01-07 12:56:42 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VStrXpaNe97JsA6Y37hiXps/fIyZLkqbt5iCkqzeI0k6fb6b7tlROGydKJT7CTdYtBspJIzS1p7q415B7mHZ7g==", "id"=>"2"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 12:56:42 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (1.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" IN (1, 2, 3, 4)[0m
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (1, 2, 3, 4, 5, 6)[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.2ms)
+  Rendered recipes/index.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 94ms (Views: 85.4ms | ActiveRecord: 3.6ms)
+
+

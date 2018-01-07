@@ -29,8 +29,6 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.includes(:ingredients, :tags).find(params[:id])
-    @recipe.ingredients.build
-    @recipe.tags.build
   end
 
 
