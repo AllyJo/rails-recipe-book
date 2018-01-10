@@ -21,6 +21,14 @@ class UsersController < ApplicationController
     @favorites = @user.favorites.find_by(params[:favorites])
   end
 
+  def favorite_recipe
+    @recipe = Recipe.find(params[:recipe_id])
+
+    redirect_to recipes_path(@recipe) unless current_user
+    current_user.favorites << @recipe
+    redirect_to user_path(current_user)
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :email, :password)

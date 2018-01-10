@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post '/users/favorites/:recipe_id', to: 'users#favorite_recipe', as: 'favorite_recipe'
+
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
 

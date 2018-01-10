@@ -7,8 +7,8 @@
 <% end %>
 
 <h4>Saved Recipes: </h4>
-<% @user.favorites.each do |favorite| %>
-  <li><%= link_to favorite.name, recipe_path %></li>
+<% current_user.favorites.each do |recipe| %>
+  <li><%= link_to recipe.name, recipes_path(@recipe) %></li>
 <% end %>
 
 

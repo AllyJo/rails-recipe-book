@@ -12662,3 +12662,570 @@ Processing by RecipesController#index as HTML
 Completed 200 OK in 94ms (Views: 85.4ms | ActiveRecord: 3.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-01-07 14:18:32 -0800
+  [1m[35m (15.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (7.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (7.8ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" IN (1, 2)[0m
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (1, 2)[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered recipes/index.html.erb within layouts/application (191.1ms)
+  [1m[36mUser Load (31.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 663ms (Views: 549.0ms | ActiveRecord: 74.1ms)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2018-01-07 14:18:37 -0800
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_ingredient_fields.html.erb (1.3ms)
+  Rendered recipes/_ingredient_fields.html.erb (1.0ms)
+  Rendered recipes/_tag_fields.html.erb (1.2ms)
+  Rendered recipes/_tag_fields.html.erb (0.9ms)
+  Rendered recipes/new.html.erb within layouts/application (82.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 226ms (Views: 138.9ms | ActiveRecord: 26.3ms)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2018-01-07 14:30:00 -0800
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3hXXqDosT07LUpMWxTkoDXHjtIEfV+A8ue2Z/r8NT1/RRnJBqnYf9utRtHqx3rbSUlLw/LaO+MwbWEATiuliGA==", "recipe"=>{"name"=>"Pizza Crust", "instructions"=>"Preheat over to 350. Line/grease pan for crust. Combine mozzarella, and cream cheese in a bowl. Microwave for about a minute. Combine the cheese mixture, then add parmesan, garlic powder, almond flour, salt, and eggs. Stir until well mixed. Wet hands or use plastic wrap to press dough evenly into pan. Use fork to poke holes into dough. Bake dough for about 15 minutes. Increase oven temp to 400. Remove from oven, let rest for 5 minutes. Top with desired toppings and bake for about 10 minutes. Allow to cool a few minutes before slicing.", "cooking_time"=>"about 30 minutes", "cooking_style"=>"Baked", "ingredients_attributes"=>{"0"=>{"amount"=>"2 Cups", "name"=>"Mozzarella Cheese (shredded)"}, "1515364053721"=>{"amount"=>"2 Tbs", "name"=>"Parmesan Cheese (grated)"}, "1515364073744"=>{"amount"=>"1/2 Cup", "name"=>"Almond Flour"}, "1515364116767"=>{"amount"=>"2 Tbs", "name"=>"Cream Cheese"}, "1515364125996"=>{"amount"=>"2", "name"=>"Eggs"}, "1515364141313"=>{"amount"=>"1/4 Tsp", "name"=>"Garlic Powder"}, "1515364152843"=>{"amount"=>"1/8 Tsp", "name"=>"Salt"}}, "tags_attributes"=>{"0"=>{"body"=>"Keto"}, "1515364190118"=>{"body"=>"Cheesy"}}}, "commit"=>"Add Recipe"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (6.9ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "instructions", "cooking_time", "cooking_style", "created_at", "updated_at", "creator_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Pizza Crust"], ["instructions", "Preheat over to 350. Line/grease pan for crust. Combine mozzarella, and cream cheese in a bowl. Microwave for about a minute. Combine the cheese mixture, then add parmesan, garlic powder, almond flour, salt, and eggs. Stir until well mixed. Wet hands or use plastic wrap to press dough evenly into pan. Use fork to poke holes into dough. Bake dough for about 15 minutes. Increase oven temp to 400. Remove from oven, let rest for 5 minutes. Top with desired toppings and bake for about 10 minutes. Allow to cool a few minutes before slicing."], ["cooking_time", "about 30 minutes"], ["cooking_style", "Baked"], ["created_at", "2018-01-07 22:30:00.951060"], ["updated_at", "2018-01-07 22:30:00.951060"], ["creator_id", 2]]
+  [1m[35mSQL (6.8ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Mozzarella Cheese (shredded)"], ["amount", "2 Cups"], ["created_at", "2018-01-07 22:30:00.962174"], ["updated_at", "2018-01-07 22:30:00.962174"]]
+  [1m[35mSQL (8.0ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["ingredient_id", 15], ["created_at", "2018-01-07 22:30:00.997552"], ["updated_at", "2018-01-07 22:30:00.997552"]]
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Parmesan Cheese (grated)"], ["amount", "2 Tbs"], ["created_at", "2018-01-07 22:30:01.009536"], ["updated_at", "2018-01-07 22:30:01.009536"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["ingredient_id", 16], ["created_at", "2018-01-07 22:30:01.018659"], ["updated_at", "2018-01-07 22:30:01.018659"]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Almond Flour"], ["amount", "1/2 Cup"], ["created_at", "2018-01-07 22:30:01.027539"], ["updated_at", "2018-01-07 22:30:01.027539"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["ingredient_id", 17], ["created_at", "2018-01-07 22:30:01.033627"], ["updated_at", "2018-01-07 22:30:01.033627"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cream Cheese"], ["amount", "2 Tbs"], ["created_at", "2018-01-07 22:30:01.036062"], ["updated_at", "2018-01-07 22:30:01.036062"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["ingredient_id", 18], ["created_at", "2018-01-07 22:30:01.047487"], ["updated_at", "2018-01-07 22:30:01.047487"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Eggs"], ["amount", "2"], ["created_at", "2018-01-07 22:30:01.050307"], ["updated_at", "2018-01-07 22:30:01.050307"]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["ingredient_id", 19], ["created_at", "2018-01-07 22:30:01.054586"], ["updated_at", "2018-01-07 22:30:01.054586"]]
+  [1m[35mSQL (6.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Garlic Powder"], ["amount", "1/4 Tsp"], ["created_at", "2018-01-07 22:30:01.058924"], ["updated_at", "2018-01-07 22:30:01.058924"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["ingredient_id", 20], ["created_at", "2018-01-07 22:30:01.072128"], ["updated_at", "2018-01-07 22:30:01.072128"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Salt"], ["amount", "1/8 Tsp"], ["created_at", "2018-01-07 22:30:01.074813"], ["updated_at", "2018-01-07 22:30:01.074813"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["ingredient_id", 21], ["created_at", "2018-01-07 22:30:01.081892"], ["updated_at", "2018-01-07 22:30:01.081892"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "tags" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Keto"], ["created_at", "2018-01-07 22:30:01.084187"], ["updated_at", "2018-01-07 22:30:01.084187"]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "recipe_tags" ("recipe_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["tag_id", 3], ["created_at", "2018-01-07 22:30:01.094444"], ["updated_at", "2018-01-07 22:30:01.094444"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "tags" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Cheesy"], ["created_at", "2018-01-07 22:30:01.098366"], ["updated_at", "2018-01-07 22:30:01.098366"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "recipe_tags" ("recipe_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 3], ["tag_id", 4], ["created_at", "2018-01-07 22:30:01.103661"], ["updated_at", "2018-01-07 22:30:01.103661"]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/recipes/3
+Completed 302 Found in 195ms (ActiveRecord: 55.8ms)
+
+
+Started GET "/recipes/3" for 127.0.0.1 at 2018-01-07 14:30:01 -0800
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (6.9ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (15, 16, 17, 18, 19, 20, 21)[0m
+  [1m[36mRecipeTag Load (0.6ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (3, 4)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered ingredients/_show.html.erb (0.8ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.2ms)
+  Rendered ingredients/_show.html.erb (0.2ms)
+  Rendered tags/_show.html.erb (0.6ms)
+  Rendered tags/_show.html.erb (0.3ms)
+  Rendered recipes/show.html.erb within layouts/application (59.8ms)
+Completed 200 OK in 193ms (Views: 151.0ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-07 14:30:10 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (1.3ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" IN (1, 2, 3)[0m
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (1, 2, 3, 4)[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.8ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.3ms)
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered recipes/index.html.erb within layouts/application (66.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 151ms (Views: 138.5ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/recipes/3" for 127.0.0.1 at 2018-01-07 15:27:11 -0800
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRecipe Load (3.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (7.9ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (2.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (15, 16, 17, 18, 19, 20, 21)[0m
+  [1m[36mRecipeTag Load (20.7ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" = 3[0m
+  [1m[36mTag Load (1.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (3, 4)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered ingredients/_show.html.erb (0.5ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered ingredients/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.7ms)
+  Rendered tags/_show.html.erb (1.1ms)
+  Rendered recipes/show.html.erb within layouts/application (63.9ms)
+Completed 200 OK in 226ms (Views: 161.8ms | ActiveRecord: 36.5ms)
+
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRecipe Exists (21.6ms)[0m  [1m[34mSELECT  1 AS one FROM "user_recipes" INNER JOIN "recipes" ON "user_recipes"."recipe_id" = "recipes"."id" INNER JOIN "user_recipes" "user_recipes_favorites" ON "recipes"."id" = "user_recipes_favorites"."recipe_id" WHERE "user_recipes_favorites"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "recipes" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserRecipe Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "user_recipes" INNER JOIN "recipes" ON "user_recipes"."recipe_id" = "recipes"."id" INNER JOIN "user_recipes" "user_recipes_favorites" ON "recipes"."id" = "user_recipes_favorites"."recipe_id" WHERE "user_recipes_favorites"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUserRecipe Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "user_recipes" INNER JOIN "recipes" ON "user_recipes"."recipe_id" = "recipes"."id" INNER JOIN "user_recipes" "user_recipes_favorites" ON "recipes"."id" = "user_recipes_favorites"."recipe_id" WHERE "user_recipes_favorites"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mRecipe Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mUserRecipe Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "user_recipes" INNER JOIN "recipes" ON "user_recipes"."recipe_id" = "recipes"."id" INNER JOIN "user_recipes" "user_recipes_favorites" ON "recipes"."id" = "user_recipes_favorites"."recipe_id" WHERE "user_recipes_favorites"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-01-08 15:55:23 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (6.7ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" IN (1, 2, 3)[0m
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (1, 2, 3, 4)[0m
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (1.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered recipes/index.html.erb within layouts/application (111.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 298ms (Views: 253.0ms | ActiveRecord: 15.9ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUserRecipe Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "user_recipes" INNER JOIN "recipes" ON "user_recipes"."recipe_id" = "recipes"."id" INNER JOIN "user_recipes" "user_recipes_favorites" ON "recipes"."id" = "user_recipes_favorites"."recipe_id" WHERE "user_recipes_favorites"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (29.8ms)[0m  [1m[32mINSERT INTO "user_recipes" ("user_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["recipe_id", 3], ["created_at", "2018-01-09 22:51:17.022958"], ["updated_at", "2018-01-09 22:51:17.022958"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "user_recipes" ("user_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["recipe_id", 3], ["created_at", "2018-01-09 22:58:03.534597"], ["updated_at", "2018-01-09 22:58:03.534597"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "user_recipes" WHERE "user_recipes"."user_id" = $1 AND "user_recipes"."recipe_id" IN (3, 3)[0m  [["user_id", 1]]
+  [1m[35m (10.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Tom"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "tom@tom.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserRecipe Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "user_recipes" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "user_recipes" ("user_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["recipe_id", 3], ["created_at", "2018-01-09 23:01:36.902720"], ["updated_at", "2018-01-09 23:01:36.902720"]]
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Exists (24.1ms)[0m  [1m[34mSELECT  1 AS one FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+Started GET "/" for 127.0.0.1 at 2018-01-09 20:08:05 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.7ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" IN (1, 2, 3)[0m
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (1, 2, 3, 4)[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered recipes/index.html.erb within layouts/application (446.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 625ms (Views: 455.8ms | ActiveRecord: 114.7ms)
+
+
+Started DELETE "/sessions/2" for 127.0.0.1 at 2018-01-09 20:08:08 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"o2yReAOCPqKJ9Qlz3y/7uywYCl82fWgDBZ0F4DISgwfMOkS9e9YURCzYL3/7nq69Azxf9yOB9AZY5tkzcK15oA==", "id"=>"2"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-09 20:08:08 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.6ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" IN (1, 2, 3)[0m
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (1, 2, 3, 4)[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered recipes/index.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 94ms (Views: 85.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2018-01-09 20:08:13 -0800
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 149ms (Views: 139.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-09 20:08:18 -0800
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pgYJgpf3XjgB4fF0mlY76Aow3w/imm5xBriuuKL7zbenX4jXQTYTzTx6vlRi/R/gfikLWRP3w9/ZWTyazklRWA==", "email"=>"tom@tom.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tom@tom.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 200 OK in 107ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:08:18 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (7.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (2.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 18.1ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"favorite_recipe", :controller=>"users", :id=>"1"}, missing required keys: [:recipe_id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to recipe.name, favorite_recipe_path %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158700127220'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158700127220'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:08:57 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (14.8ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"favorite_recipe", :controller=>"users", :recipe_id=>nil}, missing required keys: [:recipe_id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to recipe.name, favorite_recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158721970500'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158721970500'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:09:42 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  Rendered users/show.html.erb within layouts/application (34.5ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `favorite_recipe' for #<User:0x007f9e30a0bf88>
+Did you mean?  favorite_ids):
+     7: <% end %>
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorite_recipe.each do |recipe| %>
+    11:   <li><%= link_to recipe.name, favorite_recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158692332440'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:10:11 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (1.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"favorite_recipe", :controller=>"users", :recipe_id=>nil}, missing required keys: [:recipe_id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to recipe.name, favorite_recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158696248660'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158696248660'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:11:28 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (11.5ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"favorite_recipe", :controller=>"users", :recipe_id=>nil}, missing required keys: [:recipe_id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to favorite_recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158696912740'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158696912740'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:11:39 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (12.1ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"favorite_recipe", :controller=>"users", :recipe_id=>nil}, missing required keys: [:recipe_id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to recipe.name,favorite_recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158719309220'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158719309220'
+Started GET "/" for 127.0.0.1 at 2018-01-09 20:11:53 -0800
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipeTag Load (0.8ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."recipe_id" IN (1, 2, 3)[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN (1, 2, 3, 4)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered tags/_show.html.erb (0.1ms)
+  Rendered recipes/index.html.erb within layouts/application (35.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 91ms (Views: 81.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:11:58 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (2.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (17.7ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 6.4ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"favorite_recipe", :controller=>"users", :recipe_id=>nil}, missing required keys: [:recipe_id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to recipe.name,favorite_recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158695752840'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158695752840'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:12:34 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (13.2ms)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 16.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"favorite_recipe", :controller=>"users", :recipe_id=>nil}, missing required keys: [:recipe_id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to recipe.name,favorite_recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158721139820'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158721139820'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:14:58 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (11.9ms)
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 18.7ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"recipes", :id=>nil}, missing required keys: [:id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to recipe.name, recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158721104520'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158721104520'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:15:14 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  Rendered users/show.html.erb within layouts/application (22.1ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 2.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `favorite_recipes' for #<User:0x007f9e30d99a10>
+Did you mean?  favorite_ids):
+     7: <% end %>
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorite_recipes.each do |recipe| %>
+    11:   <li><%= link_to recipe.name, recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158729995220'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:15:18 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  Rendered users/show.html.erb within layouts/application (36.1ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `favorite_recipe' for #<User:0x007f9e307a9268>
+Did you mean?  favorite_ids):
+     7: <% end %>
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorite_recipe.each do |recipe| %>
+    11:   <li><%= link_to recipe.name, recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158701240060'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:15:24 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"recipes", :id=>nil}, missing required keys: [:id]):
+     8: 
+     9: <h4>Saved Recipes: </h4>
+    10: <% current_user.favorites.each do |recipe| %>
+    11:   <li><%= link_to recipe.name, recipe_path(@recipe) %></li>
+    12: <% end %>
+  
+app/views/users/show.html.erb:11:in `block in _app_views_users_show_html_erb___4597200448352330315_70158728891900'
+app/views/users/show.html.erb:10:in `_app_views_users_show_html_erb___4597200448352330315_70158728891900'
+Started GET "/users/1" for 127.0.0.1 at 2018-01-09 20:15:34 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1 LIMIT $2[0m  [["creator_id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "user_recipes" ON "recipes"."id" = "user_recipes"."recipe_id" WHERE "user_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 55ms (Views: 43.3ms | ActiveRecord: 2.6ms)
+
+
