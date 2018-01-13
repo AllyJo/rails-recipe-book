@@ -2,7 +2,10 @@ class RecipesController < ApplicationController
 
   def index
     # session.delete(:user_id)
-    @recipes = Recipe.all.includes(:tags)
+    # @recipes = Recipe.all.includes(:tags)
+    @q = Recipe.ransack(params[:q])
+    @recipes = @q.result(distinct: true).includes(:ingredients, :tags, :creator)
+    ep params
   end
 
   def new

@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
   def favorite_recipe
     @recipe = Recipe.find(params[:recipe_id])
-
     redirect_to recipes_path(@recipe) unless current_user
     current_user.favorites << @recipe
     redirect_to user_path(current_user)

@@ -1,4 +1,11 @@
 <p>Welcome to Recipe Book! A place to store and discover recipes.</p>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :seach_for %>
+  <%= f.search_field :name_or_tags_body_or_ingredients_name_or_creator_username_cont %>
+  <%= f.submit %>
+<% end %>
+
 <ul class="no-decoration recipe-container">
   <% @recipes.each do |recipe| %>
     <li class="recipe-card"><%= link_to recipe.name, recipe_path(recipe) %>
