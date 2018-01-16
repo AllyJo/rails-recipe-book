@@ -1,0 +1,6 @@
+<div class="created-recipes-list">
+  <h4><%= @user.username %>'s' Recipes:</h4>
+  <% @user.created_recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+  <% end %>
+</div>

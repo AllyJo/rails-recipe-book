@@ -17,8 +17,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @created_recipes = @user.created_recipes.find_by(params[:created_recipe])
-    @favorites = @user.favorites.find_by(params[:favorites])
+    @created_recipes = current_user.created_recipes
+    @favorites = current_user.favorites
+  end
+
+  def favorite_recipe
+    @recipe = Recipe.find(params[:recipe_id])
+    redirect_to recipes_path(@recipe) unless current_user
+    current_user.favorites << @recipe
+    redirect_to user_path(current_user)
   end
 
   private
