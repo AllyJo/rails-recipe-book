@@ -1,0 +1,11 @@
+<div class="profile-list">
+  <h4>Your Recipes:</h4>
+    <% current_user.created_recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <% end %>
+
+    <h4>Your Saved Recipes: </h4>
+    <% current_user.favorites.each do |recipe| %>
+      <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <% end %>
+</div>
